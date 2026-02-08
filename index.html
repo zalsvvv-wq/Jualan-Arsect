@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neon Script Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- background particles -->
+  <canvas id="bg"></canvas>
+
+  <!-- toko -->
+  <div class="store-box">
+    <h1 id="storeName"></h1>
+    <p id="storeDesc"></p>
+    <div class="count">
+      Free: <span id="freeCount">0</span> |
+      Premium: <span id="premiumCount">0</span>
+    </div>
+  </div>
+
+  <input id="search" class="search" placeholder="Cari script...">
+
+  <h2 id="freeTitle" class="category-title"></h2>
+  <div id="freeList" class="container"></div>
+
+  <h2 id="premiumTitle" class="category-title"></h2>
+  <div id="premiumList" class="container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
