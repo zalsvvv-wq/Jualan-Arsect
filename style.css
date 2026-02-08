@@ -1,0 +1,155 @@
+body{
+  margin:0;
+  font-family:Segoe UI;
+  background:#07090f;
+  color:white;
+  overflow-x:hidden;
+  padding:20px;
+}
+
+/* canvas bg */
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+/* store */
+.store-box{
+  text-align:center;
+  padding:25px;
+  border-radius:18px;
+  background:#10131c;
+  box-shadow:0 0 40px cyan;
+  margin-bottom:20px;
+}
+
+/* search */
+.search{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  background:#151826;
+  border:none;
+  color:white;
+  margin-bottom:25px;
+}
+
+/* title neon */
+.category-title{
+  margin:25px 0 10px;
+  text-shadow:
+    0 0 5px var(--glow),
+    0 0 15px var(--glow),
+    0 0 35px var(--glow);
+}
+
+/* grid */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+
+/* card */
+.card{
+  position:relative;
+  padding:18px;
+  border-radius:14px;
+  cursor:pointer;
+  overflow:hidden;
+
+  background:var(--bg);
+
+  animation:glowPulse 2s infinite alternate;
+  transition:.25s;
+}
+
+@keyframes glowPulse{
+  from{ box-shadow:0 0 8px var(--glow);}
+  to{ box-shadow:0 0 30px var(--glow);}
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* border neon jalan */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:14px;
+  background:linear-gradient(90deg,transparent,var(--glow),transparent);
+  animation:borderMove 3s linear infinite;
+  z-index:-1;
+}
+
+@keyframes borderMove{
+  100%{background-position:300% 0;}
+}
+
+/* shine */
+.card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:skewX(-20deg);
+}
+
+.card:active::after{
+  animation:shine .6s;
+}
+
+@keyframes shine{
+  to{ left:130%; }
+}
+
+/* ripple */
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.6);
+  transform:scale(0);
+  animation:ripple .5s linear;
+}
+
+@keyframes ripple{
+  to{ transform:scale(5); opacity:0; }
+}
+
+/* badge */
+.badge{
+  position:absolute;
+  top:8px;
+  right:8px;
+  background:var(--glow);
+  color:black;
+  font-size:10px;
+  padding:3px 7px;
+  border-radius:6px;
+}
+
+/* buttons */
+.btns{
+  display:flex;
+  gap:6px;
+  margin-top:10px;
+}
+
+.btn{
+  flex:1;
+  padding:8px;
+  text-align:center;
+  border-radius:8px;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+}
+
+.btn1{background:#00c853;}
+.btn2{background:#2979ff;}
